@@ -6,6 +6,8 @@ package it.polito.tdp.meteo;
 
 import java.net.URL;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -44,7 +46,19 @@ public class FXMLController {
     
     @FXML
     void doCalcolaSequenza(ActionEvent event) {
-
+    	
+    	this.txtResult.clear();
+    	if(boxMese.getValue()==null) {
+    		labelErroreMese.setText("ERRORE: selezionare un mese");
+    		return;
+    	}
+    	labelErroreMese.setText("");
+    	int mese =boxMese.getValue();
+    	List<String> citta=new LinkedList<>();
+    	citta=model.trovaSequenza(mese);
+    	for(int i=0;i<citta.size();i++) {
+    		txtResult.appendText((i+1)+")" +citta.get(i)+"\n");
+    	}
     }
 
     @FXML
