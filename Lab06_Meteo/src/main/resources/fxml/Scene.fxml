@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="364.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.meteo.FXMLController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="364.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.meteo.FXMLController">
    <top>
       <Label text="Lab6_Meteo" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -21,7 +20,7 @@
    <center>
       <VBox prefHeight="293.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="54.0" prefWidth="600.0">
+            <HBox>
                <children>
                   <Label text="Mese">
                      <HBox.margin>
@@ -36,9 +35,14 @@
                   </Button>
                </children>
                <VBox.margin>
-                  <Insets top="20.0" />
+                  <Insets bottom="10.0" top="20.0" />
                </VBox.margin>
             </HBox>
+            <Label fx:id="labelErroreMese" textFill="RED">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" />
+               </VBox.margin>
+            </Label>
             <HBox>
                <children>
                   <Label text="Sequenza ottimale delle città" />
