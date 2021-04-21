@@ -61,16 +61,15 @@ public class Model {
 			return;
 		}else {
 			for(Citta c:partenza) {
-				
 				int nuovoCosto= costo+c.getRilevamenti().get(livello).getUmidita();
 				if(c.getCounter()<NUMERO_GIORNI_CITTA_MAX) {
-					if(livello==0||(livello==1 && c.getNome().equals(parziale.get(livello-1)))||c.getNome().equals(parziale.get(livello-1))){
+					if(livello==0||c.getNome().equals(parziale.get(livello-1))){
 						parziale.add(c.getNome());
 						c.increaseCounter();
 						regressione(livello+1,parziale,partenza,nuovoCosto);
 						parziale.remove(livello);
 						c.setCounter(c.getCounter()-1);
-					}else if(!c.getNome().equals(parziale.get(livello-1))){
+					}else if(livello!=1&&!c.getNome().equals(parziale.get(livello-1))){
 						int count=1;
 						for(int i=livello-2;i>-1;i--) {
 							if(count>=NUMERO_GIORNI_CITTA_CONSECUTIVI_MIN) {
